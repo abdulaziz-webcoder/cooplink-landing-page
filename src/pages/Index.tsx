@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
@@ -8,7 +6,6 @@ import {
   Briefcase, 
   Award, 
   ArrowRight, 
-  Globe, 
   Users, 
   Star,
   Zap,
@@ -20,19 +17,9 @@ import {
   Sparkles,
   Rocket
 } from "lucide-react";
-import LinkPreview from "@/components/LinkPreview";
+import { Link } from "react-router-dom";
 
 const Index = () => {
-  const [websiteUrl, setWebsiteUrl] = useState("");
-  const [showPreview, setShowPreview] = useState(false);
-
-  const handleUrlSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (websiteUrl.trim()) {
-      setShowPreview(true);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden relative">
       {/* Animated background elements */}
@@ -107,41 +94,6 @@ const Index = () => {
               Dasturchilar uchun yaratilgan yangi avlod platforma
             </p>
           </div>
-
-          {/* Interactive Demo Section */}
-          <div className="mt-16 animate-fade-in delay-500">
-            <div className="bg-gradient-to-r from-gray-900/80 to-black/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/50 max-w-2xl mx-auto">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full flex items-center justify-center">
-                  <Globe className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-semibold">Veb-sayt Preview Demo</h3>
-              </div>
-              
-              <form onSubmit={handleUrlSubmit} className="flex gap-4">
-                <Input
-                  type="url"
-                  placeholder="https://example.com"
-                  value={websiteUrl}
-                  onChange={(e) => setWebsiteUrl(e.target.value)}
-                  className="bg-black/50 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-500 focus:ring-purple-500/20"
-                />
-                <Button 
-                  type="submit" 
-                  className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 border-0 hover:scale-105 transition-transform"
-                >
-                  <Zap className="w-4 h-4 mr-2" />
-                  Tekshirish
-                </Button>
-              </form>
-            </div>
-          </div>
-
-          {showPreview && websiteUrl && (
-            <div className="mt-12 animate-fade-in">
-              <LinkPreview url={websiteUrl} />
-            </div>
-          )}
         </div>
       </section>
 
@@ -286,14 +238,16 @@ const Index = () => {
                 <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </Button>
               
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="bg-black/50 border-gray-600 text-white hover:bg-gray-900/50 text-xl px-12 py-4 hover:scale-105 transition-all duration-300 hover:border-purple-500"
-              >
-                <Layers className="mr-3 w-6 h-6" />
-                Loyiha Haqida
-              </Button>
+              <Link to="/about">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="bg-black/50 border-gray-600 text-white hover:bg-gray-900/50 text-xl px-12 py-4 hover:scale-105 transition-all duration-300 hover:border-purple-500"
+                >
+                  <Layers className="mr-3 w-6 h-6" />
+                  Loyiha Haqida
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
