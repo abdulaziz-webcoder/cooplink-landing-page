@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,7 +15,7 @@ import {
   Shield,
   Target,
   Layers,
-  Trending-up,
+  TrendingUp,
   Heart,
   Sparkles,
   Rocket
@@ -223,7 +222,7 @@ const Index = () => {
               gradient: "from-cyan-500 to-blue-600"
             },
             {
-              icon: Trending-up,
+              icon: TrendingUp,
               title: "Daromad Imkoniyati",
               description: "O'z mahoratingizni pulga aylantirish va mos ish topish imkoniyati",
               gradient: "from-green-500 to-emerald-600"
